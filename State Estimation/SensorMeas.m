@@ -1,18 +1,21 @@
-% pos is 3x1 vector with x, y, theta
-x_max = 26;
-y_max = 21;
-
 function sensor = SensorMeas(pos)
+	% align x axis with magnetic north
+
 	x = pos(1,1);
 	y = pos(2,1);
 	theta = pos(3,1);
 
 	slope = tan(theta);
 
-	if(theta > 0 and theta < 90)
+	if(theta == 0 || theta == 360)
+	    sensor(1,1) = x_max - x;
+	    sensor(2,1) = y;
+	    return;
+	end
+
+	if(theta > 0 && theta < 90)
 		point1_x = (y_max - y)/slope + x;
 		point1_y = y_max;
-
 		point2_x = x_max;
 		point2_y = slope*(x_max - x) + y;
 
@@ -23,7 +26,13 @@ function sensor = SensorMeas(pos)
 		point4_y = (y_max - y)/slope + x;
 	end
 
-	if(theta > 90 and theta < 180)
+	if(theta == 90)
+	    sensor(1,1) = y_max - y;
+	    sensor(2,1) = x_max - x;
+	    return;
+	end
+
+	if(theta > 90 && theta < 180)
 		point1_x = (y_max - y)/slope + x;
 		point1_y = y_max;
 
@@ -37,7 +46,13 @@ function sensor = SensorMeas(pos)
 		point4_y = (y_max - y)/slope + x;
 	end
 
-	if(theta > 180 and theta < 270)
+	if(theta == 180)
+	    sensor(1,1) = x;
+	    sensor(2,1) = y_max - y;
+	    return;
+	end
+
+	if(theta > 180 && theta < 270)
 		point1_x = 0;
 		point1_y = slope*(x_max - x) + y;
 
@@ -51,7 +66,13 @@ function sensor = SensorMeas(pos)
 		point4_y = (y_max - y)/slope + x;
 	end
 
-	if(theta > 270 and theta < 360)
+	if(theta == 270)
+	    sensor(1,1) = y;
+	    sensor(2,1) = x;
+	    return;
+	end
+
+	if(theta > 270 && theta < 360)
 		point1_x = x_max;
 		point1_y = slope*(x_max - x) + y;
 
