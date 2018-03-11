@@ -1,4 +1,4 @@
-function sensor = SensorMeas(pos)
+function sensor = SensorMeas(pos, x_max, y_max)
 	% align x axis with magnetic north
 
 	x = pos(1,1);
