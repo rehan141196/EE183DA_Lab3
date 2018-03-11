@@ -23,11 +23,11 @@ B(5,2) = 0.5*sin(theta);
 B(6,1) = -1/wheeldist;
 B(6,2) = -1/wheeldist;
 
-inputs = [1;1];
+inputs = [-1;1];
+obj = extendedKalmanFilter(@StateTrans,@SensorMeas,[3;2;0;0;0;0]);
 
 for x=1:5
-    obj = extendedKalmanFilter(@StateTrans,@SensorMeas,[3;2;0;0;0;0]);
-    out = SensorMeas(obj.State, x_max, y_max);
-    [CorrectedState,CorrectedStateCovariance] = correct(obj, out, x_max, y_max);
+%     out = SensorMeas(obj.State, x_max, y_max);
+%     [CorrectedState,CorrectedStateCovariance] = correct(obj, out, x_max, y_max);
     [PredictedState,PredictedStateCovariance] = predict(obj, A, B, inputs);
 end
