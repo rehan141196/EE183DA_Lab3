@@ -234,6 +234,8 @@ void webSocketEvent(uint8_t id, WStype_t type, uint8_t * payload, size_t length)
                   backward();
                 else if(payload[1] == 'L') 
                   left();
+                else if (payload[1] == 'R' && payload[2] == 'R')
+                  ;
                 else if(payload[1] == 'R') 
                   right();
                 else if(payload[1] == 'U') {

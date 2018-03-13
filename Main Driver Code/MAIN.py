@@ -37,7 +37,8 @@ while True:
 	elif '#BK' in line:
 		print('Received Back Input')
 		inputs = [-1 , 1]
-	elif 'rrt' in line:
+	elif '#RRT' in line:
+		print('Executing RRT')
 		path = rrt.main()
 		print("After resizing, the following path can be used to get from the start to the goal: ", path)
 		continue
