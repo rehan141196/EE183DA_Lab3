@@ -264,6 +264,8 @@ void webSocketEvent(uint8_t id, WStype_t type, uint8_t * payload, size_t length)
     }
 }
 
+// Setup for LIDAR
+
 void SensorSetup()
 {
   pinMode(D3, OUTPUT);
@@ -317,6 +319,8 @@ void SensorSetup()
   Serial.println (" device(s).");
 }
 
+// Get sensor measurements
+
 void SensorLoop()
 {
   Serial.print("Lidar 1 range(mm): ");
@@ -354,6 +358,7 @@ void I2CwriteByte(uint8_t Address, uint8_t Register, uint8_t Data)
   Wire.endTransmission();
 }
 
+// Setup IMU
 void MagnetometerSetup()
 {
   // Arduino initializations
@@ -369,7 +374,7 @@ void MagnetometerSetup()
 }
 
 
-// Main loop, read and display data
+// Read and display data from IMU
 void MagnetometerLoop()
 {
   

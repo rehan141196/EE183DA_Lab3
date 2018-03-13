@@ -1,17 +1,19 @@
+# Reference: https://github.com/ArianJM/rapidly-exploring-random-trees
+
 import numpy as np
 from matplotlib import pyplot as ppl
 from matplotlib import cm
 import random, sys, math, os.path
 import imageio
 
-MAP_IMG = './box.jpg' # Black and white image for a map
+MAP_IMG = './box.jpg' # Map of robot environment
 MIN_NUM_VERT = 20 # Minimum number of vertex in the graph
 MAX_NUM_VERT = 1500 # Maximum number of vertex in the graph
 STEP_DISTANCE = 20 # Maximum distance between two vertex
 SEED = None # For random numbers
 
-x_d = 26
-y_d = 21
+x_d = 26 # x dimension of box
+y_d = 21 # y dimension of box
 
 def rapidlyExploringRandomTree(ax, img, start, goal, seed=None):
   hundreds = 100
@@ -172,7 +174,7 @@ def connectPoints(a, b, img):
   return newPoints
 
 def findNearestPoint(points, point):
-  best = (9223372036854775807, 9223372036854775807, 9223372036854775807)
+  best = (9223372036854775807, 9223372036854775807, 9223372036854775807) # High integer value since Python 3 does not have sys.maxint
   for p in points:
     if p == point:
       continue
@@ -239,5 +241,5 @@ elif len(sys.argv) > 1:
   else:
     print(sys.argv[1], 'is not a file')
 
-if __name__ == '__main__':
+if __name__ == '__main__': # Script can be run as function as well
     main()

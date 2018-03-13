@@ -1,6 +1,6 @@
 function sensor = SensorMeas(pos, x_max, y_max)
-	% align x axis with magnetic north
-
+	% Align x axis with magnetic north
+	% Idea is to draw a line and compute the points of intersection with the dimensions of the box and then take the minimum distance as explained in report
 	x = pos(1,1);
 	y = pos(2,1);
 	theta = pos(3,1);
