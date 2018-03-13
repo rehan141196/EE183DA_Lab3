@@ -1,6 +1,7 @@
 import serial
 import re
 import matlab.engine
+import rrt
 
 eng = matlab.engine.start_matlab()
 
@@ -36,5 +37,11 @@ while True:
 	elif '#BK' in line:
 		print('Received Back Input')
 		inputs = [-1 , 1]
+	elif 'rrt' in line:
+		path = rrt.main()
+		print("After resizing, the following path can be used to get from the start to the goal: ", path)
+		continue
 	
 	ExtendedKF = eng.EKF(ExtendedKF, sensors, inputs)
+
+
