@@ -9,6 +9,7 @@ The next step is to run the MAIN.py file in the Main Driver Code folder. This pr
 For the motion planning part, a button called RRT is provided on the web interface. When the user clicks the RRT button, the MAIN.py script recognizes this input and then invokes the rrt.py script provided in the same folder. The rrt.py script opens an image of the box given in box.jpg. This box is treated as the environment the robot is in, where the whitespace is the place the robot can move around in and the black figures represent obstacles. The user is then prompted to select a starting point for the robot by clicking on the image. After that the user is prompted to click on another point on the image which is the goal that the robot wants to get to. The program then takes these two points and runs an RRT algorithm to compute a trajectory from the start to the goal (if one exists). The trajectory computed is shown on the figure as well as returned to the MAIN.py script and printed to the output console. The parameters for the RRT function can also be specified to change the amount of time one is willing to wait to check whether a route exists.
 
 References:
+
 Skeleton Code - https://git.uclalemur.com/mehtank/paperbot/
 
 RRT - https://github.com/ArianJM/rapidly-exploring-random-trees
